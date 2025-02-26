@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+h1{
+  font-size: 2.5rem;
+  font-family: 'Montserrat';
+  font-weight: normal;
+  color: #444;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.wrapper{
+  width: 90%;
+  margin: 0 auto;
+  max-width: 80rem;
+}
+
+.cols{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.col{
+  width: calc(25% - 2rem);
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.container{
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+.front,
+.back{
+  background-size: cover;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.25);
+  border-radius: 10px;
+  background-position: center;
+  -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  text-align: center;
+  min-height: 280px;
+  height: auto;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.back{
+  background: #cedce7;
+  background: -webkit-linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+  background: -o-linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+  background: linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+}
+
+.front:after{
+  position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    content: '';
+    display: block;
+    opacity: .6;
+    background-color: #000407a8;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    border-radius: 10px;
+}
+.container:hover .front,
+.container:hover .back{
+    -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.inner{
+    -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
+            transform: translateY(-50%) translateZ(60px) scale(0.94);
+    top: 50%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    outline: 1px solid transparent;
+    -webkit-perspective: inherit;
+            perspective: inherit;
+    z-index: 2;
+}
+
+.container .back{
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+
+.container .front{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+
+.container:hover .back{
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.container:hover .front{
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.front .inner p{
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.front .inner p:after{
+  content: '';
+  width: 4rem;
+  height: 2px;
+  position: absolute;
+  background: #C6D4DF;
+  display: block;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: -.75rem;
+}
+
+.front .inner span{
+  color: rgba(255,255,255,0.7);
+  font-family: 'Montserrat';
+  font-weight: 300;
+}
+
+@media screen and (max-width: 64rem){
+  .col{
+    width: calc(33.333333% - 2rem);
+  }
+}
+
+@media screen and (max-width: 48rem){
+  .col{
+    width: calc(50% - 2rem);
+  }
+}
+
+@media screen and (max-width: 32rem){
+  .col{
+    width: 100%;
+    margin: 0 0 2rem 0;
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Premium Amenities</h1>
+        <div class="cols">
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+              <div class="container">
+                <div class="front" style="background-image: url(tennis-ball-tennis-court\ \(1\).webp)">
+                  <div class="inner">
+                    <p>Cricket </p>
+                    <span>Turf </span>
+                  </div>
+                </div>
+                <div class="back">
+                  <div class="inner">
+                    <p>"Premium artificial turf for sports, events, and recreation. Durable, safe, and high-quality!".</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+              <div class="container">
+                <div class="front" style="background-image: url(badminton.webp)">
+                  <div class="inner">
+                    <p>Indoor </p>
+                    <span>Outdoor Games</span>
+                  </div>
+                </div>
+                <div class="back">
+                  <div class="inner">
+                    <p>"Enjoy top-quality turf for indoor and outdoor games. Perfect for football, cricket, and more!."</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+              <div class="container">
+                <div class="front" style="background-image: url(zoo1.webp)">
+                  <div class="inner">
+                    <p>Wildlife </p>
+                    <span>Park</span>
+                  </div>
+                </div>
+                <div class="back">
+                  <div class="inner">
+                    <p>"Explore the wild at our animal zoo! See exotic species up close in a natural habitat."</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+              <div class="container">
+                <div class="front" style="background-image: url(pool2.webp)">
+                  <div class="inner">
+                    <p>Swimming </p>
+                    <span>Pool</span>
+                  </div>
+                </div>
+                <div class="back">
+                  <div class="inner">
+                    <p>"Relax and refresh in our crystal-clear swimming pool. Perfect for fun, fitness, and leisure!"</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+              <div class="container">
+                <div class="front" style="background-image: url(kpa1.webp)">
+                  <div class="inner">
+                    <p>Children's </p>
+                    <span>Park</span>
+                  </div>
+                </div>
+                <div class="back">
+                  <div class="inner">
+                    <p>"Children's Park: A fun and safe place for kids to play, explore, and enjoy outdoor activities!"</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+              <div class="container">
+                <div class="front" style="background-image: url(gym2.webp)">
+                  <div class="inner">
+                    <p> Modern</p>
+                    <span>Gym!</span>
+                  </div>
+                </div>
+                <div class="back">
+                  <div class="inner">
+                    <p>"Achieve your fitness goals at our gym! Modern equipment, expert trainers, and a motivating environment."</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+              <div class="container">
+                <div class="front" style="background-image: url(best-hotels-travel-thailand-tourism-wallpaper-preview_1_.webp)">
+                  <div class="inner">
+                    <p>Restaurant</p>
+                    <span></span>
+                  </div>
+                </div>
+                <div class="back">
+                  <div class="inner">
+                    <p>"Experience delicious flavors at our restaurant! Enjoy fresh, flavorful dishes in a cozy ambiance."</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+              <div class="container">
+                <div class="front" style="background-image: url(happy-young-woman-feeding-pigeons.webp)">
+                  <div class="inner">
+                    <p>Birds </p>
+                    <span>Zone</span>
+                  </div>
+                </div>
+                <div class="back">
+                  <div class="inner">
+                    <p>"Welcome to the Bird Zone! Discover exotic birds in a natural and peaceful environment."</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+       </div>
+    
+    
+</body>
+</html>
