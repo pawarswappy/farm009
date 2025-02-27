@@ -36,6 +36,7 @@
     .card ul li {
         margin: 10px 0% 10px 15px;
         font-size: 1rem;
+        list-style: disc;
     }
 
     @media (max-width: 768px) {
